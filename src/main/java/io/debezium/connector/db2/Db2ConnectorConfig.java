@@ -587,13 +587,13 @@ public class Db2ConnectorConfig extends HistorizedRelationalDatabaseConnectorCon
             .name("Db2")
             .excluding(CommonConnectorConfig.QUERY_FETCH_SIZE,
                     CommonConnectorConfig.SOURCE_INFO_STRUCT_MAKER)
-            .type(
+            .group(Field.Group.CONNECTION,
                     HOSTNAME,
                     PORT,
                     USER,
                     PASSWORD,
                     DATABASE_NAME)
-            .connector(
+            .group(Field.Group.CONNECTOR,
                     SNAPSHOT_MODE,
                     INCREMENTAL_SNAPSHOT_CHUNK_SIZE,
                     SCHEMA_NAME_ADJUSTMENT_MODE,
@@ -608,7 +608,7 @@ public class Db2ConnectorConfig extends HistorizedRelationalDatabaseConnectorCon
                     UPDATE_CAPTURE_TABLE_PRUNE_APPLY_QUAL,
                     UPDATE_CAPTURE_TABLE_PRUNE_TARGET_SERVER,
                     UPDATE_CAPTURE_TABLE_PRUNE_PROCEDURE_OVERRIDE_NAME)
-            .events(SOURCE_INFO_STRUCT_MAKER)
+            .group(Field.Group.CONNECTOR_ADVANCED, SOURCE_INFO_STRUCT_MAKER)
             .excluding(
                     SCHEMA_INCLUDE_LIST,
                     SCHEMA_EXCLUDE_LIST,
